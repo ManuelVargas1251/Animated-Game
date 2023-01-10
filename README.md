@@ -3,7 +3,7 @@ Game framing using js.
 
 http://www.mnl.space/Animated-Game/
 
-[![Animated-Gradient](Animated-Game.png)](http://mnl.space/Animated-Game/)
+[![Animated-Gradient](/src/img/Animation-Game.gif)](http://mnl.space/Animated-Game/)
 
 
 ### References
@@ -16,3 +16,4 @@ http://www.mnl.space/Animated-Game/
 - https://developer.mozilla.org/en-US/docs/Glossary/Middleware
 - https://fonts.google.com/
 - https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+- https://favicon.io/favicon-converter/

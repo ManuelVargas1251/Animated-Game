@@ -1,0 +1,22 @@
+/* google fonts */
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One);
+/* @import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700,800); */
+
+* {
+  padding: 0;
+}
+
+html,
+body,
+canvas {
+  position: fixed;
+}
+
+/*
+:root {
+	--theme-color:	#55aad1;	
+	--theme-dark:	#3f789e;	
+	--white-accent:	#eee;
+	--black-accent:	#3c3c3c;
+}
+*/
