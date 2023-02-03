@@ -7,6 +7,11 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+# Travis CI/ Coveralls
+#coverage builds locally; yml file only needed to run locally
+coverage
+.coveralls.yml
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 

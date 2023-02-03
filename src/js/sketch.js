@@ -17,24 +17,27 @@ SCENE_FOUR = false
 // create shape instances of objects
 const backgroundGradient = new gradientBackground(10, -11, 666, 0, '#0036c4', '#071f5f')
 const backgroundGradientTwo = new gradientBackground(10, -11, 666, 0, '#00c455', '#075f2d')
-const backgroundGradientThree = new gradientBackground(10, -11, 666, 0, '#c4af00', '#5f5607')
+const backgroundGradientThree = new gradientBackground(10, -11, 666, 0, 'blue', '#00FFFF')
+// const backgroundGradientThree = new gradientBackground(10, -11, 666, 0, '#c4af00', '#5f5607')
 const backgroundGradientFour = new gradientBackground(10, -11, 666, 0, '#C41400', '#5F1107')
+const backgroundGradientFive = new gradientBackground(10, -11, 666, 0, '#0036c4', '#f031a4')
 
 const newSquare = new gradientSquare(10, 10, 666, 0, '#0036c4', '#00FF00')
 const newSquareTwo = new gradientSquare(10, 10, 666, 0, '#00c455', '#FF0')
+const newSquareThree = new gradientSquare(10, 10, 666, 0, '#00FFFF', '#FF0')
 
-const myGradientCircle = new gradientCircle(10, 10, 666, 0, 
-    '#FF0000', '#0036c4',   
+const myGradientCircle = new gradientCircle(10, 10, 666, 0,
+    '#FF0000', '#0036c4',
     undefined, 300, false)
-const whiteBorderCircle = new gradientCircle(10, 10, 666, 0, 
-    undefined, undefined,   
+const whiteBorderCircle = new gradientCircle(10, 10, 666, 0,
+    undefined, undefined,
     undefined, 900, true)
-const tealCircle = new gradientCircle(10, 10, 666, 0, 
-    '#FFF', '#00FFFF',      
+const tealCircle = new gradientCircle(10, 10, 666, 0,
+    '#FFF', '#00FFFF',
     undefined, 600, false)
 
 const yellowCircle = new gradientCircle(10, 10, 666, 0,
-    '#FFF', '#FF0',             
+    '#FFF', '#FF0',
     undefined, 300, false)
 //     1200, 300, false)
 
@@ -47,26 +50,23 @@ let i = 0
 // draw loop    
 function draw() {
     const canvas = document.getElementById('canvas').getContext('2d')
-    
+
     let splashLength = 200
 
     /*
     */
     // SCENE 1: SPLASH SCREENS
     // console.log('i: ' + i)
-    if ((SCENE_ONE && i > splashLength) || (SCENE_ONE && !SCENE_FOUR && !SCENE_THREE && !SCENE_TWO)) {
+    if ((SCENE_ONE && i < splashLength) || (SCENE_ONE && !SCENE_FOUR && !SCENE_THREE && !SCENE_TWO)) {
         splashScreens(canvas)
         // SCENE_ONE = true
         console.info('SCENE 1: SPLASH SCREENS')
-        if(i>100){
-            changeThemeColor('#BF40BF')
-        }
-    }
+    } 
     // fade out
-    
+
 
     // SCENE 2: Start Screen
-    if (i >= splashLength && !SCENE_THREE && !SCENE_FOUR) {
+    if (i >= (splashLength + 200) && !SCENE_THREE && !SCENE_FOUR) {
         startScreen(canvas, backgroundGradient)
         SCENE_ONE = false
         SCENE_TWO = true
@@ -76,7 +76,7 @@ function draw() {
         //     j = splashLength
         // }else
     }
-    
+
     // SCENE 3: GAME
     if (SCENE_THREE) {
         gameScreen(canvas)
