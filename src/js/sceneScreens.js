@@ -1,18 +1,39 @@
-// let ThreeY = 300
+// create shape instances of objects
+const backgroundGradient = new gradientBackground(10, -11, 666, 0, '#0036c4', '#071f5f')
+const backgroundGradientTwo = new gradientBackground(10, -11, 666, 0, '#00c455', '#075f2d')
+const backgroundGradientThree = new gradientBackground(10, -11, 666, 0, 'blue', '#00FFFF')
+// const backgroundGradientThree = new gradientBackground(10, -11, 666, 0, '#c4af00', '#5f5607')
+const backgroundGradientFour = new gradientBackground(10, -11, 666, 0, '#C41400', '#5F1107')
+const backgroundGradientFive = new gradientBackground(10, -11, 666, 0, '#0036c4', '#f031a4')
+
+const newSquare = new gradientSquare(10, 10, 666, 0, '#0036c4', '#00FF00')
+const newSquareTwo = new gradientSquare(10, 10, 666, 0, '#00c455', '#FF0')
+const newSquareThree = new gradientSquare(10, 10, 666, 0, '#00FFFF', '#FF0')
+
+const myGradientCircle = new gradientCircle(10, 10, 666, 0,
+  '#FF0000', '#0036c4',
+  undefined, 300, false)
+const whiteBorderCircle = new gradientCircle(10, 10, 666, 0,
+  undefined, undefined,
+  undefined, 900, true)
+const tealCircle = new gradientCircle(10, 10, 666, 0,
+  '#FFF', '#00FFFF',
+  undefined, 600, false)
+
+const yellowCircle = new gradientCircle(10, 10, 666, 0,
+  '#FFF', '#FF0',
+  undefined, 300, false)
+//     1200, 300, false)
+
 
 // SCENE ONE
 function splashScreens(canvas) {
-  // let j = 0
-
   if (i <= 200) {
     splashScreenOne(canvas)
   } else if (i > 201) {
     splashScreenTwo(canvas)
   }
-  // testInterface(canvas); //test visibility
-  // splashScreenTwo(canvas)
-  // ++j
-  // console.log('j: ' + j )
+  // testInterface(canvas);
 }
 
 // SCENE ONE A
@@ -64,6 +85,14 @@ function splashScreenOne(canvas) {
 
   // if enough time has passed, fade to black, load next scene
 }
+
+function rainbowThemeColor(myIterator) {
+  //green
+  //yellow
+  //blue
+  //red
+}
+
 // SCENE ONE B
 function splashScreenTwo(canvas) {
 
@@ -119,11 +148,12 @@ function gameOver(canvas) {
   // startAnimation()
 }
 
+
 function yBorderWaiter() {
 
-  let randomColor = Math.floor(Math.random() * 16777215).toString(16)
+  let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
 
-  // y axisx
+  // y axis
   //top border
   if (y > 0 && y < 1400 && !topWallHit && !bottomWallHit) {
     y += 2
@@ -140,8 +170,8 @@ function yBorderWaiter() {
     topWallHit = true
     bottomWallHit = false
     //strobe a random color    
-    if (!(i % 4)) {
-      changeThemeColor('#' + randomColor)
+    if (!(i % 2)) {
+      changeThemeColor(randomColor)
     }
   }
 
