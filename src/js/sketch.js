@@ -28,21 +28,20 @@ SCENE_FOUR = false
 // DRAW LOOP
 function draw() {
     const canvas = document.getElementById('canvas').getContext('2d')
-    // console.log('canvas.width: ' +canvas.width)
-    // console.log('canvas.height: ' + canvas.height)
 
     // SCENE 1: SPLASH SCREENS
-    if ((SCENE_ONE && i < splashLength) || (SCENE_ONE && !SCENE_FOUR && !SCENE_THREE && !SCENE_TWO)) {
+    if (SCENE_ONE && i <= 400) {
         splashScreens(canvas)
-        // SCENE_ONE = true
         console.info('SCENE 1: SPLASH SCREENS')
+        if (i >= 400) {
+            SCENE_ONE = false
+            SCENE_TWO = true
+        }
     }   // fade out
 
     // SCENE 2: Start Screen
-    if (i >= (splashLength + 200) && !SCENE_THREE && !SCENE_FOUR) {
+    if (SCENE_TWO) {
         startScreen(canvas, backgroundGradient)
-        SCENE_ONE = false
-        SCENE_TWO = true
         console.info('SCENE 2: START SCREEN')
     }
 
@@ -70,13 +69,14 @@ function sceneEvents() {
     }
     // Move to Scene 2: Start Game
     if (SCENE_FOUR) {
+        // printScenes('SCENE_FOUR_before')
         SCENE_FOUR = false
-        SCENE_THREE = false
-        SCENE_TWO = false
-        SCENE_ONE = true
+        SCENE_TWO = true
+        // printScenes('SCENE_FOUR_after')
     }
 }
 
+// MOUSE LISTENERS
 addEventListener('mousedown', (event) => {
     // console.info('mouse pressed', event)
     mousePressed = true
@@ -90,10 +90,11 @@ addEventListener('mousemove', (event) => {
     mouseClientY = event.clientY
     // console.info('mouse moved', event.clientX, event.clientY)
 })
-//mouse click
 addEventListener('click', (event) => {
     sceneEvents()
 })
+
+// TOUCH LISTENERS
 addEventListener('touchstart', (event) => {
     // console.info('touch pressed', event)
     touchPressed = true
@@ -105,9 +106,40 @@ addEventListener('touchend', (event) => {
 })
 addEventListener('touchmove', (event) => {
     // console.info('touch moved', event.touches[0].clientX, event.touches[0].clientY)
-    // console.info('touchPressed', touchPressed)
     // touchPressed = true
     touchClientX = event.touches[0].clientX
     touchClientY = event.touches[0].clientY
     sceneEvents()
 })
+
+function printScenes(msg) {
+    if (msg) { console.info(msg) }
+    console.info('- SCENE_ONE:', SCENE_ONE)
+    console.info('- SCENE_TWO: ', SCENE_TWO)
+    console.info('- SCENE_THREE: ', SCENE_THREE)
+    console.info('- SCENE_FOUR: ', SCENE_FOUR)
+}
+
+function startAnimation() {
+    if (!myInterval) {
+        try {
+            myInterval = setInterval(draw, animationSpeed)
+            return 'animation started!'
+        } catch (e) {
+            console.error('error: animation Not started! ' + e)
+            return 'animation NOT started!'
+        }
+    }
+}
+
+function stopAnimation() {
+    if (myInterval) {
+        clearInterval(myInterval)
+        return 'animation stopped!'
+    }
+    return 'animation NOT stopped!'
+}
+
+function exitAnimation() {
+    window.close();
+}

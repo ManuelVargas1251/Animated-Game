@@ -25,7 +25,6 @@ const yellowCircle = new gradientCircle(10, 10, 666, 0,
   undefined, 300, false)
 //     1200, 300, false)
 
-
 // SCENE ONE
 function splashScreens(canvas) {
   if (i <= 200) {
@@ -40,57 +39,67 @@ function splashScreens(canvas) {
 function splashScreenOne(canvas) {
   backgroundGradientThree.show(canvas)
   newSquareThree.show(canvas)
-  //displayTextHeader(canvas, 'SPLASH')
-  //displayTextHeader(canvas, 'SCREEN', 787)
 
+  // animate theme color
+  rainbowThemeColor()
+  // animate text
+  splashScreenText(canvas)
+} // if enough time has passed, fade to black, load next scene
+
+//global time based, use local time next
+function rainbowThemeColor() {
+  //green, yellow, blue, red
+  if (i > 0 && i <= 25) {
+  } else if (i > 25 && i <= 50) {
+    changeThemeColor('#FF0')
+  } else if (i > 50 && i <= 75) {
+    changeThemeColor('#00FF')
+  } else if (i > 75 && i <= 100) {
+    changeThemeColor('#FF0000')
+  } else if (i > 100 && i <= 125) {
+    changeThemeColor('#00FF00')
+  } else if (i > 125 && i <= 150) {
+    changeThemeColor('#FF0')
+  } else if (i > 150 && i <= 175) {
+    changeThemeColor('#00FF')
+  } else if (i > 175 && i <= 200) {
+    changeThemeColor('#FF0000')
+  }
+}
+
+function splashScreenText(canvas) {
+  //green, yellow, blue, red
   if (i > 0 && i <= 25) {
     displayTextHeader(canvas, '!!ASHSHHH')
-  }
-  if (i > 25 && i <= 50) {
+  } else if (i > 25 && i <= 50) {
     displayTextHeader(canvas, '!LASHSHHH')
-    changeThemeColor('#FF0')
     displayTextHeader(canvas, '   .', 120)
   } else if (i > 50 && i <= 75) {
     displayTextHeader(canvas, 'PLASHSHH')
     displayTextHeader(canvas, 'S', 787)
-    changeThemeColor('#00FF')
     displayTextHeader(canvas, '  .', 200)
     displayTextHeader(canvas, '   .', 888)
   } else if (i > 75 && i <= 100) {
     displayTextHeader(canvas, 'SPLASHH')
     displayTextHeader(canvas, 'SC', 787)
-    changeThemeColor('#FF0000')
     displayTextHeader(canvas, '.', 45)
   } else if (i > 100 && i <= 125) {
     displayTextHeader(canvas, 'PLASH')
     displayTextHeader(canvas, 'SCREE', 787)
-    changeThemeColor('#00FF00')
     displayTextHeader(canvas, '   .', 888)
   } else if (i > 125 && i <= 150) {
     displayTextHeader(canvas, 'PLASH')
     displayTextHeader(canvas, 'SCREEN', 787)
-    changeThemeColor('#FF0')
     displayTextHeader(canvas, '  .', 230)
   } else if (i > 150 && i <= 175) {
     displayTextHeader(canvas, 'SPLASH')
     displayTextHeader(canvas, 'SCREENN', 787)
-    changeThemeColor('#00FF')
     displayTextHeader(canvas, '         .', 375)
   } else if (i > 175 && i <= 200) {
     displayTextHeader(canvas, 'SPLASH')
     displayTextHeader(canvas, 'SCREENNN', 787)
-    changeThemeColor('#FF0000')
     displayTextHeader(canvas, '          .', 350)
   }
-
-  // if enough time has passed, fade to black, load next scene
-}
-
-function rainbowThemeColor(myIterator) {
-  //green
-  //yellow
-  //blue
-  //red
 }
 
 // SCENE ONE B
@@ -178,16 +187,11 @@ function yBorderWaiter() {
   if (y < 130) {
     topWallHit = true
     bottomWallHit = false
-
   }
   else if (y > 1440) {
     topWallHit = false
     bottomWallHit = true
-
-
   }
-
-
 
   if (SCENE_THREE) {
     topWallHit = false
@@ -216,7 +220,7 @@ function testInterface(canvas) {
 
 // display header to screen
 function displayTextHeader(canvas, text, height) {
-  canvas.font = "145px Fredoka One"; //"150px Fredoka+One"
+  canvas.font = "145px Fredoka One";
   canvas.fillStyle = "white";
   if (height) {
     canvas.fillText(text, 120, height)
@@ -227,35 +231,6 @@ function displayTextHeader(canvas, text, height) {
 
 // mobile only, change browser color
 function changeThemeColor(color) {
-  //let themeColor = document.getElementsByTagName('meta')['theme-color']['content']
   let themeColor = document.getElementsByTagName('meta')['theme-color']
   themeColor.setAttribute('content', color)
 }
-
-function stopAnimation() {
-  if (myInterval) {
-    clearInterval(myInterval)
-    return 'animation stopped!'
-  }
-  return 'animation NOT stopped!'
-}
-
-function startAnimation() {
-  if (!myInterval) {
-    try {
-      myInterval = setInterval(draw, animationSpeed)
-      return 'animation started!'
-    } catch (e) {
-      console.error('error: animation Not started! ' + e)
-      return 'animation NOT started!'
-    }
-    finally {
-      //print scene bools
-      console.warn('SCENE_ONE: ' + SCENE_ONE)
-      console.warn('SCENE_TWO: ' + SCENE_TWO)
-      console.warn('SCENE_THREE: ' + SCENE_THREE)
-      console.warn('SCENE_FOUR: ' + SCENE_FOUR)
-    }
-  }
-}
-
