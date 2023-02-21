@@ -40,10 +40,16 @@ function splashScreenOne(canvas) {
   splashScreenText(canvas)
 } // if enough time has passed, fade to black, load next scene
 
+let colors = ['#00FF00', '#FF0', '#00FF', '#FF0000']
+//color[0-25][100-125]
+//color[25-50]
+//color[50-75]
+//color[75-100]
 //global time based, use local time next
 function rainbowThemeColor() {
   //green, yellow, blue, red
   if (i > 0 && i <= 25) {
+    //default green set in index.html
   } else if (i > 25 && i <= 50) {
     changeThemeColor('#FF0')
   } else if (i > 50 && i <= 75) {
@@ -102,17 +108,40 @@ function splashScreenTwo(canvas) {
   // blue background
   backgroundGradientFive.show(canvas)
   // newSquareThree.show(canvas)
-  displayTextHeader(canvas, '¿¿¿¿¿¿¿')
-  displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
+  // displayTextHeader(canvas, '¿¿¿¿¿¿¿')
+  // displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
   // console.log('splash2::')
 
   // circle instead
   // backgroundGradientThree.show(canvas)
   // newSquareThree.show(canvas)
 
+  if (i > 200 && i <= 250) {
+    displayTextHeader(canvas, '¿¿')
+    displayTextHeader(canvas, '¿¿¿¿', 787)
+    displayTextHeader(canvas, '         .', 120)
+  } else if (i > 250 && i <= 275) {
+    displayTextHeader(canvas, '¿')
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿', 787)
+    displayTextHeader(canvas, '     .', 120)
+  } else if (i > 275 && i <= 300) {
+
+  } else if (i > 300 && i <= 325) {
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿')
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
+    displayTextHeader(canvas, '   .   ', 220)
+  }  else if (i > 325 && i <= 350) {
+
+  } else if (i > 350 && i <= 390) {
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿')
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
+    displayTextHeader(canvas, '    .   ', 420)
+  }else if (i > 390 && i <= 400) {
+
+    displayTextHeader(canvas, '    .   ', 520)
+  }
+
 }
-
-
 
 // SCENE TWO
 // Start Screen 
