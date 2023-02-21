@@ -10,23 +10,17 @@ const newSquare = new gradientSquare(10, 10, 666, 0, '#0036c4', '#00FF00')
 const newSquareTwo = new gradientSquare(10, 10, 666, 0, '#00c455', '#FF0')
 const newSquareThree = new gradientSquare(10, 10, 666, 0, '#00FFFF', '#FF0')
 
-const myGradientCircle = new gradientCircle(10, 10, 666, 0,
-  '#FF0000', '#0036c4',
-  undefined, 300, false)
-const whiteBorderCircle = new gradientCircle(10, 10, 666, 0,
-  undefined, undefined,
-  undefined, 900, true)
-const tealCircle = new gradientCircle(10, 10, 666, 0,
-  '#FFF', '#00FFFF',
-  undefined, 600, false)
+const myGradientCircle = new gradientCircle(10, 10, 666, 0, '#FF0000', '#0036c4', undefined, 300, false)
+const whiteBorderCircle = new gradientCircle(10, 10, 666, 0, undefined, undefined, undefined, 900, true)
+const tealCircle = new gradientCircle(10, 10, 666, 0, '#FFF', '#00FFFF', undefined, 600, false)
+// const fruitStickerCircle = new gradientCircle(10, 10, 666, 0, '#FFF', 'black', undefined, 600, false)
 
-const yellowCircle = new gradientCircle(10, 10, 666, 0,
-  '#FFF', '#FF0',
-  undefined, 300, false)
+const yellowCircle = new gradientCircle(10, 10, 666, 0, '#FFF', '#FF0', undefined, 300, false)
 //     1200, 300, false)
 
 // SCENE ONE
 function splashScreens(canvas) {
+  console.info('SCENE 1: SPLASH SCREENS')
   if (i <= 200) {
     splashScreenOne(canvas)
   } else if (i > 201) {
@@ -122,24 +116,35 @@ function splashScreenTwo(canvas) {
 
 // SCENE TWO
 // Start Screen 
-function startScreen(canvas, backgroundGradient) {
-  // console.log('y: ' + y)
+function startScreen(canvas) {
+  console.info('SCENE 2: START SCREEN')
 
-  // canvas.clearRect(0, 0, 1200, 1600)
+  //draw scene
   changeThemeColor('#FF0')
   backgroundGradientTwo.show(canvas)
   newSquareTwo.show(canvas)
-  // draw button
+  //strobe a color  
+  if (!(i % 4)) {
+    changeThemeColor('yellow')
+  } else {
+    changeThemeColor('green')
+  }
+
   // write text to screen
   displayTextHeader(canvas, "START")
   displayTextHeader(canvas, '¿', 777)
+  // displayTextHeader(canvas, localStorage.getItem('AG_VISITCOUNT'), 944)
   yellowCircle.show(canvas)
-  yBorderWaiter()
+
+  //display sticker
+
+  yBorderWaiter() //enable top/bottom borders
   // typing animation
 }
 
 // SCENE THREE
 function gameScreen(canvas) {
+  console.info("SCENE 3: GAME SCREEN")
   changeThemeColor("#00FF")
   backgroundGradientThree.show(canvas)
   animatedGradient(canvas)
@@ -149,6 +154,7 @@ function gameScreen(canvas) {
 // SCENE FOUR
 // function to stop the animation
 function gameOver(canvas) {
+  console.info("SCENE 4: GAME OVER")
   changeThemeColor("#FF0000")
   backgroundGradientFour.show(canvas)
   displayTextHeader(canvas, 'GAME')
@@ -160,7 +166,7 @@ function gameOver(canvas) {
 
 function yBorderWaiter() {
 
-  let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
+  // let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
 
   // y axis
   //top border
@@ -178,10 +184,6 @@ function yBorderWaiter() {
     y += 2
     topWallHit = true
     bottomWallHit = false
-    //strobe a random color    
-    if (!(i % 2)) {
-      changeThemeColor(randomColor)
-    }
   }
 
   if (y < 130) {

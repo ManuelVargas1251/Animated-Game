@@ -9,13 +9,20 @@ http://www.mnl.space/Animated-Game/
 
 ## Development 💾
 
-0. Clone the repo locally
+### Quick Setup
+0. Clone and open the repo in vscode
 0. Install [**Live Server** vscode extension](https://github.com/ritwickdey/vscode-live-server) for debugging on mobile phone.
 0. Click [`Go Live`](https://github.com/ritwickdey/vscode-live-server/blob/master/README.md#shortcuts-to-startstop-server) from the status bar to turn the server on/off .
-    - Type `ipconfig` and use ***IPv4 Address*** + the Port Number in your mobile browser .
-    ```
-    132.148.1.100:1100
-    ```
+0. Type `ipconfig` and use ***IPv4 Address*** + the Port Number in your mobile browser.
+```
+132.148.1.100:1100
+```
+
+4. Create a new branch from dev branch and switch to it.
+0. Make your changes and commit
+0. Create a pull request to dev branch.
+
+
 
 ## References 🏓
 

@@ -4,7 +4,9 @@
 //
 //
 
-// SETUP 
+// SETUP
+fruitSticker()  //initialize
+//eventHandler
 let animationSpeed = 4  //ms
 i = 0   //iteration time in milliseconds
 splashLength = 200
@@ -32,7 +34,6 @@ function draw() {
     // SCENE 1: SPLASH SCREENS
     if (SCENE_ONE && i <= 400) {
         splashScreens(canvas)
-        console.info('SCENE 1: SPLASH SCREENS')
         if (i >= 400) {
             SCENE_ONE = false
             SCENE_TWO = true
@@ -41,24 +42,21 @@ function draw() {
 
     // SCENE 2: Start Screen
     if (SCENE_TWO) {
-        startScreen(canvas, backgroundGradient)
-        console.info('SCENE 2: START SCREEN')
+        startScreen(canvas)
     }
 
     // SCENE 3: GAME
     if (SCENE_THREE) {
         gameScreen(canvas)
-        console.info("SCENE 3: GAME SCREEN")
     }
 
     // SCENE 4: END
     if (SCENE_FOUR) {
         gameOver(canvas)
-        console.info("SCENE 4: GAME OVER")
     }
     i++
 }
-let myInterval = setInterval(draw, animationSpeed)  // loop the animation every 4 milliseconds
+let myInterval = setInterval(draw, animationSpeed)  // loop every 4 milliseconds
 
 // EVENT HANDLERS
 function sceneEvents() {
