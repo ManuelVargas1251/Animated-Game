@@ -10,9 +10,9 @@ const newSquare = new gradientSquare(10, 10, 666, 0, '#0036c4', '#00FF00')
 const newSquareTwo = new gradientSquare(10, 10, 666, 0, '#00c455', '#FF0')
 const newSquareThree = new gradientSquare(10, 10, 666, 0, '#00FFFF', '#FF0')
 
-const myGradientCircle = new gradientCircle(10, 10, 666, 0, '#FF0000', '#0036c4', undefined, 300, false)
-const whiteBorderCircle = new gradientCircle(10, 10, 666, 0, undefined, undefined, undefined, 900, true)
-const tealCircle = new gradientCircle(10, 10, 666, 0, '#FFF', '#00FFFF', undefined, 600, false)
+const myGradientCircle =  new gradientCircle(10, 10, 666, 0, '#FF0000', '#0036c4', undefined, 300, false) //top red/blue
+const whiteBorderCircle = new gradientCircle(10, 10, 666, 0, undefined, undefined, undefined, 900, true)  //bottom circle outline
+const tealCircle =        new gradientCircle(10, 10, 666, 0, '#FFF', '#00FFFF', undefined, 600, false)  //middle teal
 // const fruitStickerCircle = new gradientCircle(10, 10, 666, 0, '#FFF', 'black', undefined, 600, false)
 
 const yellowCircle = new gradientCircle(10, 10, 666, 0, '#FFF', '#FF0', undefined, 300, false)
@@ -228,6 +228,8 @@ function yBorderWaiter() {
     topWallHit = false
     bottomWallHit = false
   }
+  
+  console.info('y: ' + y)
 }
 
 

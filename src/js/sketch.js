@@ -118,6 +118,13 @@ function printScenes(msg) {
     console.info('- SCENE_FOUR: ', SCENE_FOUR)
 }
 
+// event handler instead?
+//on bool change?
+// function sceneChange(){
+    
+//     return bool
+// }
+
 function startAnimation() {
     if (!myInterval) {
         try {

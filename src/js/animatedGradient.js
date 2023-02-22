@@ -21,6 +21,7 @@ function animatedGradient(canvas) {
 
   // listens for border collisions to keep objects inside canvas - only x position
   xborderWaiter()
+  // yBorderWaiter()
 
   // When clicked, show four circle impressions in the square
   // when the circle in the correct color is placed on the impressions, 
@@ -64,4 +65,5 @@ function xborderWaiter() {
     rightWallHit = false;
     leftWallHit = true;
   }
+  console.info('x: ' + x)
 }
