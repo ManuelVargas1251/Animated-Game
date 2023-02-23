@@ -10,9 +10,9 @@ const newSquare = new gradientSquare(10, 10, 666, 0, '#0036c4', '#00FF00')
 const newSquareTwo = new gradientSquare(10, 10, 666, 0, '#00c455', '#FF0')
 const newSquareThree = new gradientSquare(10, 10, 666, 0, '#00FFFF', '#FF0')
 
-const myGradientCircle =  new gradientCircle(10, 10, 666, 0, '#FF0000', '#0036c4', undefined, 300, false) //top red/blue
+const myGradientCircle = new gradientCircle(10, 10, 666, 0, '#FF0000', '#0036c4', undefined, 300, false) //top red/blue
 const whiteBorderCircle = new gradientCircle(10, 10, 666, 0, undefined, undefined, undefined, 900, true)  //bottom circle outline
-const tealCircle =        new gradientCircle(10, 10, 666, 0, '#FFF', '#00FFFF', undefined, 600, false)  //middle teal
+const tealCircle = new gradientCircle(10, 10, 666, 0, '#FFF', '#00FFFF', undefined, 600, false)  //middle teal
 // const fruitStickerCircle = new gradientCircle(10, 10, 666, 0, '#FFF', 'black', undefined, 600, false)
 
 const yellowCircle = new gradientCircle(10, 10, 666, 0, '#FFF', '#FF0', undefined, 300, false)
@@ -77,7 +77,7 @@ function splashScreenText(canvas) {
   } else if (i > 50 && i <= 75) {
     displayTextHeader(canvas, 'PLASHSHH')
     displayTextHeader(canvas, 'S', 787)
-    displayTextHeader(canvas, '  .', 200)
+    // displayTextHeader(canvas, '  .', 200)
     displayTextHeader(canvas, '   .', 888)
   } else if (i > 75 && i <= 100) {
     displayTextHeader(canvas, 'SPLASHH')
@@ -115,30 +115,34 @@ function splashScreenTwo(canvas) {
   // circle instead
   // backgroundGradientThree.show(canvas)
   // newSquareThree.show(canvas)
-
-  if (i > 200 && i <= 250) {
+  if (i > 200 && i <= 212) {
+  }
+  else if (i > 212 && i <= 225) {
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿')
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 917)
+  } else if (i > 225 && i <= 250) {
     displayTextHeader(canvas, '¿¿')
     displayTextHeader(canvas, '¿¿¿¿', 787)
-    displayTextHeader(canvas, '         .', 120)
+    displayTextHeader(canvas, '       .', 120)
   } else if (i > 250 && i <= 275) {
     displayTextHeader(canvas, '¿')
-    displayTextHeader(canvas, '¿¿¿¿¿¿¿', 787)
-    displayTextHeader(canvas, '     .', 120)
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
+    displayTextHeader(canvas, ' ¿¿¿¿¿¿¿¿¿¿', 917)
+    displayTextHeader(canvas, '    .', 140)
   } else if (i > 275 && i <= 300) {
-
   } else if (i > 300 && i <= 325) {
     displayTextHeader(canvas, '¿¿¿¿¿¿¿')
     displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
     displayTextHeader(canvas, '   .   ', 220)
-  }  else if (i > 325 && i <= 350) {
+  } else if (i > 325 && i <= 350) {
 
   } else if (i > 350 && i <= 390) {
-    displayTextHeader(canvas, '¿¿¿¿¿¿¿')
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿')
     displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 787)
-    displayTextHeader(canvas, '    .   ', 420)
-  }else if (i > 390 && i <= 400) {
-
-    displayTextHeader(canvas, '    .   ', 520)
+    displayTextHeader(canvas, '¿¿¿¿¿¿¿¿¿¿', 917)
+    // } else if (i > 390 && i <= 400) {
+    displayTextHeader(canvas, '   .   ', 520)
   }
 
 }
@@ -188,21 +192,19 @@ function gameOver(canvas) {
   backgroundGradientFour.show(canvas)
   displayTextHeader(canvas, 'GAME')
   displayTextHeader(canvas, 'OVER', 787)
+
+  // stop animating after a while - event handlers will restart it
   // stopAnimation()
   // startAnimation()
 }
 
 
 function yBorderWaiter() {
-
-  // let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16)
-
   // y axis
   //top border
   if (y > 0 && y < 1400 && !topWallHit && !bottomWallHit) {
     y += 2
   }
-
   // bottom border
   else if (bottomWallHit && !topWallHit) {
     y -= 2;
@@ -228,11 +230,8 @@ function yBorderWaiter() {
     topWallHit = false
     bottomWallHit = false
   }
-  
   console.info('y: ' + y)
 }
-
-
 
 // helper methods
 // 
@@ -262,7 +261,7 @@ function displayTextHeader(canvas, text, height) {
   }
 }
 
-// mobile only, change browser color
+// mobile only, change browser theme color
 function changeThemeColor(color) {
   let themeColor = document.getElementsByTagName('meta')['theme-color']
   themeColor.setAttribute('content', color)

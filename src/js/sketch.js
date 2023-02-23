@@ -8,7 +8,7 @@
 fruitSticker()  //initialize
 //eventHandler
 let animationSpeed = 4  //ms
-i = 0   //iteration time in milliseconds
+i = 0   //current iteration time in milliseconds
 splashLength = 200
 
 // MOUSE
