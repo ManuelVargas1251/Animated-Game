@@ -4,10 +4,10 @@ let
   y = 0 //starting y position of motion objects / global
   dx = 2
   dy = 2
-rightWallHit = false;
-leftWallHit = false;
-topWallHit = false;
-bottomWallHit = false;
+  rightWallHit = false
+  leftWallHit = false
+  topWallHit = false
+  bottomWallHit = false
 
 function animatedGradient(canvas) {
   backgroundGradient.show(canvas);

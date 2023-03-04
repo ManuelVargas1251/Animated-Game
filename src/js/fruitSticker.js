@@ -3,7 +3,7 @@ function fruitSticker() {
     stickerStorage()
 }
 function stickerStorage() {
-    // console.info("local storage")
+    // console.info("Fruit Sticker")
     if (!localStorage.getItem('AG_PLAYER')) {
         localStorage.setItem('AG_PLAYER', '001')
         localStorage.setItem('AG_VISITCOUNT', '1')
@@ -13,7 +13,6 @@ function stickerStorage() {
         visitCount = String(Number(visitCount) + 1)
         localStorage.setItem('AG_VISITCOUNT', visitCount)
     }
-
     //localStorage.removeItem()
     //localStorage.key()
     //localStorage.length()

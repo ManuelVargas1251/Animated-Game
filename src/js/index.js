@@ -1,5 +1,6 @@
 ////////////////
 // ANIMATED GAME
+// MANUEL VARGAS
 ////////////////
 //
 //
@@ -148,3 +149,10 @@ function stopAnimation() {
 function exitAnimation() {
     window.close();
 }
+
+//
+//
+////////////////
+// ANIMATED GAME
+// MANUEL VARGAS
+////////////////
