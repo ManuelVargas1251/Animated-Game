@@ -56,10 +56,10 @@ class gradientCircle extends gradientShape {
             // draw on mouse press
         } else if (mousePressed && mouseClientX && mouseClientY) {
             canvas.arc(mouseClientX, mouseClientY, 120, 0, 2 * Math.PI)
-        } 
+        }
         else if (this.initY && SCENE_TWO) {
             canvas.arc(x, y, 120, 0, 2 * Math.PI);
-        } 
+        }
         else if (this.initY) {
             canvas.arc(x, this.initY, 120, 0, 2 * Math.PI);
         } else {
