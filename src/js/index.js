@@ -6,7 +6,9 @@
 //
 
 // SETUP
-fruitSticker()  //initialize
+localStorage.removeItem("AG_VISITCOUNT")
+localStorage.removeItem("AG_PLAYER")
+
 //eventHandler
 let animationSpeed = 4  //ms
 i = 0   //current iteration time in milliseconds
@@ -153,6 +155,6 @@ function exitAnimation() {
 //
 //
 ////////////////
-// ANIMATED GAME
 // MANUEL VARGAS
+// ANIMATED GAME
 ////////////////

@@ -1,5 +1,5 @@
 class gradientShape {
-    constructor(xGradient, yGradient, wGradient, hGradient, leftColor, rightColor, initX, initY, stokeBool) {
+    constructor(xGradient, yGradient, wGradient, hGradient, leftColor, rightColor, initX, initY, strokeBool) {
         this.x = xGradient
         this.y = yGradient
         this.w = wGradient
@@ -12,7 +12,7 @@ class gradientShape {
         this.leftWallHit = false
         this.topWallHit = false
         this.bottomWallHit = false
-        this.stroke = stokeBool
+        this.stroke = strokeBool
     }
     createLinearGradientLeftRight(x, y, w, h, leftColor, rightColor, canvas) {
         let gradientSquarefillStyle

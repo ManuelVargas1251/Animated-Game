@@ -50,20 +50,14 @@ function rainbowThemeColor() {
   //green, yellow, blue, red
   if (i > 0 && i <= 25) {
     //default green set in index.html
-  } else if (i > 25 && i <= 50) {
+  } else if ((i > 25 && i <= 50) || (i > 125 && i <= 150)) {
     changeThemeColor('#FF0')
-  } else if (i > 50 && i <= 75) {
+  } else if ((i > 50 && i <= 75) || (i > 150 && i <= 175)) {
     changeThemeColor('#00FF')
-  } else if (i > 75 && i <= 100) {
+  } else if ((i > 75 && i <= 100) || (i > 175 && i <= 200)) {
     changeThemeColor('#FF0000')
   } else if (i > 100 && i <= 125) {
     changeThemeColor('#00FF00')
-  } else if (i > 125 && i <= 150) {
-    changeThemeColor('#FF0')
-  } else if (i > 150 && i <= 175) {
-    changeThemeColor('#00FF')
-  } else if (i > 175 && i <= 200) {
-    changeThemeColor('#FF0000')
   }
 }
 
